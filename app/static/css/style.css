@@ -1,0 +1,79 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Banner Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+#banner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#banner img {
+    width: 100%;  /* Ensures the banner image is responsive */
+    height: auto; /* Maintains aspect ratio */
+}
+
+/* Header Styles */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Form Section Styles */
+#form-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#form-section p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    width: 100%;  /* Full width input for mobile */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;  /* Full width button for mobile */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* QR Section Styles */
+#qr-section {
+    text-align: center;
+}
+
+#preview {
+    width: 100%; /* Make video responsive */
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
