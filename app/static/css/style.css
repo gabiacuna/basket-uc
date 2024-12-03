@@ -54,6 +54,7 @@ input[type="text"] {
 button {
     width: 100%;  /* Full width button for mobile */
     padding: 10px;
+    margin-top: 10px; /* Adds space above the button */
     background-color: #007bff;
     color: white;
     border: none;
@@ -76,4 +77,38 @@ button:hover {
     height: auto;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+/* User Status Section */
+#user-status {
+    margin-top: 20px; /* Space above the user status section */
+    padding: 15px;    /* Padding inside the user status section */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;  /* Center align text */
+}
+
+/* Status Message Styles */
+#status-msg {
+    font-size: 18px;    /* Increase font size for better readability */
+    line-height: 1.4;   /* Improved line height for better spacing */
+}
+
+/* Valid User Style */
+#status-msg.valid {
+    color: green;       /* Green text for valid users */
+    background-color: #e0f7e0; /* Light green background for visibility */
+    border: 1px solid green; /* Green border */
+}
+
+/* Invalid User Style */
+#status-msg.invalid {
+    color: red;         /* Red text for invalid users */
+    background-color: #f8d7da; /* Light red background for visibility */
+    border: 1px solid red; /* Red border */
+}
+
+#status-msg.empty {
+    color: black;
+    background-color: white;
+    border: none;
 }

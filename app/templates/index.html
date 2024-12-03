@@ -6,30 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ID Checker</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </head>
-<body>    
+<body>
+    <!-- Banner Image -->
     <div id="banner">
         <img src="{% static 'app/banner.jpg' %}" alt="Banner" style="width: 100%; height: auto;">
     </div>
-    
-    <h1>Verificacion de acceso a partidos de Basketball UC</h1>
+
+    <h1>Verificación de Acceso a Partidos de Basketball UC</h1>
 
     <!-- Input Form -->
     <div id="form-section">
         <p>Ingrese su RUT:</p>
         <form id="id-form" method="POST" action="{% url 'check_id' %}">
             {% csrf_token %}
-            <input type="text" id="rut_request" name="rut_request" placeholder="12345678-9">
+            <input type="text" id="rut_request" name="rut_request" placeholder="12345678-9" required>
             <button type="submit">Validar</button>
         </form>
-        <p id="status-msg"></p>
+    </div>
+
+    <div id="user-status">
+        <p id="status-msg"> </p>
     </div>
 
     <!-- QR Code Scanning Section -->
     <div id="qr-section">
-        <h2>O Escanee el QR de su Cedula de Identidad</h2>
-        <video id="preview"></video>
+        <h2>O Escanee el QR de su Cédula de Identidad</h2>
+        <!-- <video id="preview"></video>
+        <canvas id="canvas" style="display:none;"></canvas> -->
+        <div id="reader" width="600px"></div>
+        <p id="qr-result"></p>
     </div>
+
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>

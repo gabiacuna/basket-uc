@@ -9,6 +9,9 @@ gunicorn = "*"
 gdown = "*"
 pandas = "*"
 openpyxl = "*"
+django-cors-headers = "*"
+sqlitecloud = "*"
+django-environ = "*"
 
 [dev-packages]
 

@@ -52,6 +52,6 @@ with open(f'{filename}.csv', newline='', encoding='utf-8') as csvfile:
             observation=row['observation']  # Optional field
         )
         # Save the object to the database
-        user.save()
+        user.save(force_update=True)
 
 print("Data imported successfully.")
