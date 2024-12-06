@@ -16,8 +16,8 @@ document.getElementById('id-form').addEventListener('submit', function (e) {
         rut: userRut,
     };
 
-    const {GoogleAuth} = require('google-auth-library');
-    const auth = new GoogleAuth();
+    // const {GoogleAuth} = require('google-auth-library');
+    // const auth = new GoogleAuth();
     
     fetch('/app/check_id/', {
         method: 'POST',
@@ -25,7 +25,7 @@ document.getElementById('id-form').addEventListener('submit', function (e) {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken'),  // Django CSRF token
-            'Authorization': `Bearer ${auth.idToken}`,
+            // 'Authorization': `Bearer ${auth.idToken}`,
         },
     })
     .then(response => response.json())

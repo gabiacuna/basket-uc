@@ -14,14 +14,26 @@ from pathlib import Path
 import environ
 
 
+# Initialize environment variables
 env = environ.Env()
 environ.Env.read_env()
 
-# Use environment variables
-DEBUG = env('DEBUG')
+# Use environment variables for sensitive info
+DEBUG = env('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': '/cloudsql/' + env('CLOUDSQL_CONNECTION_NAME'),
+#         'PORT': '3306',  # Default MySQL port
+#     }
+# }
 
 DATABASES = {
     'default': {
@@ -32,25 +44,16 @@ DATABASES = {
 
 print(f"Loading .env from: {env.str('SECRET_KEY', default=None)}")
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-ALLOWED_HOSTS = ['192.168.0.59', '127.0.0.1', 'localhost', 'basket-uc-gcloud-106149325585.us-central1.run.app']
+ALLOWED_HOSTS = ['192.168.0.59', '127.0.0.1', 'localhost', 'basketuc.com', 'www.basketuc.com']
 
 CORS_ALLOWED_ORIGINS = [
     "https://basket-uc-gcloud-106149325585.us-central1.run.app"
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     "app.apps.AppConfig",
+    "pages.apps.PagesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -69,7 +72,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'verifyer_site.urls'
 
@@ -92,20 +94,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'verifyer_site.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -121,25 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/Santiago'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
